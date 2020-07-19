@@ -21,4 +21,4 @@ export const GlobalStyles = createGlobalStyle`
     html, body, main {
         height: 100%;
     }
-`
+`;
