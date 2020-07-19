@@ -3,6 +3,7 @@ import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 // theme is just an Object, that contains the css variables of my app
 export const myTheme: DefaultTheme = {
+    logo: "https://pngriver.com/wp-content/uploads/2018/04/Download-Pokemon-PNG-Clipart.png",
     font: "'Grenze Gotisch', cursive",
     colors: {
         primary: '#1159F5',
