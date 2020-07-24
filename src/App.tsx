@@ -10,30 +10,35 @@ import Theme from './components/shared/Theme';
 import Header from './components/shared/Header';
 import Card from './components/shared/Card';
 
-interface Pokemon {
+interface IPokemon {
   image: string,
   name: string,
   details: string
 };
 
-const App: React.FC = (props) => {
-  const [state, setState] = useState({
+const App: React.FC = () => {
+
+  const [state, setState] = useState<IPokemon>({
     image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
     name: "pikachu",
     details: "electric"
   });
 
+  // Destructuring State
   const { image, name, details } = state;
 
+  // Get pokemon from API
   const getPokemon = async (pokemonName: string) => {
-    const pokemon: Pokemon = await getPokemonByName(pokemonName);
-    setState(pokemon);
+    // Api Request
+    const pokemon: IPokemon = await getPokemonByName(pokemonName);
+    // save to State
+    setState( pokemon );
   }
   
   return (
-    <Theme>
+    <Theme> {/* Theme wrap app to provide global css variables */}
       <AppContainer>
-        <GlobalStyles />
+        <GlobalStyles /> {/* Global Styles like to font-family ... */}
         
         <Header search={ getPokemon }/>
 
