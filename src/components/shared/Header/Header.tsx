@@ -8,8 +8,13 @@ import Search from '../Search';
 interface HeaderProps {
     search: (pokemonName: string) => void
 }
+/**
+ * Note: Function type, in TypeScript ☝:
+ * let miFunction: (x: number, y: number) => number ;
+ * Explanation: receives two parameters of type number, and returns a number
+ */
 
-export const Header: React.FC<HeaderProps> = ({ children, search }) => {
+export const Header: React.FC<HeaderProps> = ({ search }) => {
     return (
         <Styled.Header>
             <Logo />

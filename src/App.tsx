@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { getPokemonByName } from './services/PokemonService';
 
 // Global Styles
@@ -9,6 +8,8 @@ import Theme from './components/shared/Theme';
 // Components
 import Header from './components/shared/Header';
 import Card from './components/shared/Card';
+// Styles
+import * as Styled from './App.style';
 
 interface IPokemon {
   image: string,
@@ -37,36 +38,22 @@ const App: React.FC = () => {
   
   return (
     <Theme> {/* Theme wrap app to provide global css variables */}
-      <AppContainer>
+      <Styled.AppContainer>
         <GlobalStyles /> {/* Global Styles like to font-family ... */}
         
         <Header search={ getPokemon }/>
 
-        <Main>
+        <Styled.Main>
           <Card 
             image={ image }
             name={ name }
             details={ details }
           />
-        </Main>
-      </AppContainer>
+        </Styled.Main>
+      </Styled.AppContainer>
     </Theme>
   );
 }
-
-
-const Main = styled.main`
-  height: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f7f8f8;
-`;
-
-const AppContainer = styled.div`
-  height: 100vh;
-`;
-
 
 
 export default App;
