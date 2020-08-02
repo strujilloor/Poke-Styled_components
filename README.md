@@ -1,3 +1,46 @@
+# Poke API With Styled Components
+
+This is a simple poke API application, but with its own design system made with styled components and storybook.
+
+## Deployment
+
+not available yet
+
+## Installation
+
+clone the repository:
+```
+git clone https://github.com/strujilloor/Poke-Styled_components.git
+```
+Install the dependencies:
+```
+npm install
+// or
+yarn install
+```
+
+## Usage
+
+You can start the project and run server with the command:
+```
+npm start
+// or
+yarn start
+```
+Then open http://localhost:3000/ to see your app.
+
+### Storybook
+
+You can run storybook with command below:
+```
+npm run storybook
+```
+
+it will automatically open in the browser.
+
+
+When you’re ready to deploy to production, create a minified bundle with npm run build.
+___
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
