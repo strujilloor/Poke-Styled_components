@@ -13,7 +13,7 @@ export const Header = styled.header`
     min-height: 4rem;
     padding: 0 1em;
     border-bottom: 1px solid lightgray;
-    justify-content: space-between;
+    justify-content: space-evenly;
     box-shadow: 0 0 16px 1.8px lightgray;
 `;
 

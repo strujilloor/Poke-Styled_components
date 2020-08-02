@@ -1,4 +1,5 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 import { Button } from './Button';
 import { theme } from '../Theme';
 
@@ -8,7 +9,11 @@ export default {
 };
 
 export const Active = () => (
-    <Button theme={theme} active>Conectarse</Button>
+    <Button 
+        theme={theme} 
+        active
+        onClick={action('clicked')}
+    >Conectarse</Button>
 );
 
 export const Inactive = () => (
