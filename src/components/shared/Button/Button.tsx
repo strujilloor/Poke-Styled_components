@@ -1,8 +1,11 @@
 import React from 'react'
 import * as Styled from './Button.styled';
-import * as Types from './Button.dto';
+import { ButtonProperties } from './Button.type';
 
-export const Button: React.FC<Types.Button> = ({ children, color = "white", ...properties }) => 
-    <Styled.Button color={ color } {...properties} >
-        { children }
-    </Styled.Button>
+export const Button: React.FC<ButtonProperties> = ({ children, active = true , ...properties }) => {
+    return (
+        <Styled.Button active={active} {...properties} >
+            { children }
+        </Styled.Button>
+    );
+};

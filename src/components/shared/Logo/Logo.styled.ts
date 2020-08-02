@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Logo = styled.div`
     width: 5rem;
     height: 4rem;
-    background-image: url(${ props => props.theme.logo });
+    background-image: url(${ props => props.theme.background.logo });
     cursor: pointer;
     object-fit: cover;
     /* background-position: center; */

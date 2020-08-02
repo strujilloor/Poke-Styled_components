@@ -2,19 +2,23 @@ import 'styled-components';
 
 declare module 'styled-components' {
     export interface DefaultTheme {
-        logo: string,
-        font: string,
-        colors: {
+        background: {
+            logo: string
+        },
+        color: {
             primary: string,
             accent: string,
             white: string,
             black: string,
-            red: string,  
+            red: string,
             gray: {
                 darken: string,
                 dark: string,
-                ligth: string,
-                ligthen: string
+                light: string,
+                lighter: string
+            },
+            yellow: {
+                light: string
             },
         },
         sizes: {
@@ -24,6 +28,10 @@ declare module 'styled-components' {
             m: number,
             s: number,
             xs: number
+        },
+        shadows: {
+            elevate: string,
+            down: string
         }
     }
 }

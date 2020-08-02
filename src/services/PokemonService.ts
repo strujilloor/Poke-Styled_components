@@ -1,5 +1,3 @@
-import { URL } from "url";
-
 interface IPokemon {
     image: string,
     name: string,
