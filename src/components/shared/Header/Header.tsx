@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ search }) => {
             <Styled.Title>
                 Poke API
             </Styled.Title>
-            <Search search={ search } />
+            <Search search={ search } placeholder="Ingrese un pokemon" />
         </Styled.Header>
     );
 };

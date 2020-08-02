@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import searchIcon from '../../../assets/icons/search.svg';
 import * as Styled from './Search.styled';
+import { SearchProperties } from './Search.type';
 
-interface SearchProps {
-    search: (pokemonName: string) => void
-}
-export const Search: React.FC<SearchProps> = ({ search }) => {
+export const Search: React.FC<SearchProperties> = ({ search, placeholder }) => {
 
     const [pokemon, setPokemon] = useState('');
 
@@ -15,9 +13,11 @@ export const Search: React.FC<SearchProps> = ({ search }) => {
             search(pokemon);
         }
     }
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPokemon(event.target.value);
     }
+
     return (
         <Styled.Search>
             <Styled.IconContainer>
@@ -28,7 +28,7 @@ export const Search: React.FC<SearchProps> = ({ search }) => {
             </Styled.IconContainer>
             <Styled.Input 
                 type="text"
-                placeholder="Ingrese un Pokemon"
+                placeholder={ placeholder }
                 onKeyPress={ handleKeyPress } 
                 onChange={ handleChange }
             />
