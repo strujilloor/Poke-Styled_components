@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400; 
         line-height: 1.37;
         margin: 0;
+        background-color: #f7f8f8;
     }
 
     html, body, main {

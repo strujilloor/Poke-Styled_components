@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Search = styled.div`
+export const Search = styled.form`
     min-width: 263px;
     height: 3rem;
     background-color: #f9f9f8;
@@ -11,7 +11,6 @@ export const Search = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    /* justify-content: space-evenly; */
 `;
 
 export const IconContainer = styled.div`

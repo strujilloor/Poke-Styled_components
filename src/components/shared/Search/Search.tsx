@@ -3,23 +3,27 @@ import searchIcon from '../../../assets/icons/search.svg';
 import * as Styled from './Search.styled';
 import { SearchProperties } from './Search.type';
 
-export const Search: React.FC<SearchProperties> = ({ search, placeholder }) => {
+// Extract event types
+type FormEvent = React.FormEvent<HTMLFormElement>;
+type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
-    const [pokemon, setPokemon] = useState('');
+export const Search: React.FC<SearchProperties> = ({ placeholder, submit, className }) => {
 
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if(event.key === 'Enter'){
-            console.log('enter press here! ');
-            search(pokemon);
-        }
+    // state
+    const [value, setValue] = useState('');
+    // input handle change function
+    const handleChange = (event: InputEvent) => {
+        setValue(event.target.value);
     }
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPokemon(event.target.value);
+    // form handle submit function
+    const handleSubmit = (event: FormEvent) => {
+        event.preventDefault();
+        submit(value);
+        setValue('');
     }
 
     return (
-        <Styled.Search>
+        <Styled.Search onSubmit={ handleSubmit } className={ className }>
             <Styled.IconContainer>
                 <Styled.Icon 
                     src={ searchIcon } 
@@ -29,7 +33,7 @@ export const Search: React.FC<SearchProperties> = ({ search, placeholder }) => {
             <Styled.Input 
                 type="text"
                 placeholder={ placeholder }
-                onKeyPress={ handleKeyPress } 
+                value={ value }
                 onChange={ handleChange }
             />
         </Styled.Search>

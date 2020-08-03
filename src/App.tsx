@@ -7,8 +7,7 @@ import GlobalStyles from './components/shared/style';
 import Theme from './components/shared/Theme';
 // Components
 import Header from './components/shared/Header';
-import Card from './components/shared/Card';
-// Styles
+// Styled Components
 import * as Styled from './App.style';
 
 interface IPokemon {
@@ -38,13 +37,12 @@ const App: React.FC = () => {
   
   return (
     <Theme> {/* Theme wrap app to provide global css variables */}
+      <GlobalStyles /> {/* Global Styles like to font-family ... */}
       <Styled.AppContainer>
-        <GlobalStyles /> {/* Global Styles like to font-family ... */}
-        
         <Header search={ getPokemon }/>
 
         <Styled.Main>
-          <Card 
+          <Styled.Card 
             image={ image }
             name={ name }
             details={ details }
