@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Button } from './Button';
-import { theme } from '../Theme';
 
 export default {
     title: 'Shared/Button',
@@ -9,15 +8,14 @@ export default {
 };
 
 export const Active = () => (
-    <Button 
-        theme={theme} 
+    <Button
         active
         onClick={action('clicked')}
     >Conectarse</Button>
 );
 
 export const Inactive = () => (
-    <Button theme={theme} active={false}>Conectarse</Button>
+    <Button active={false}>Conectarse</Button>
 );
 
 /**
