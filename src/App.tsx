@@ -9,6 +9,11 @@ import Theme from './components/shared/Theme';
 import Header from './components/shared/Header';
 // Styled Components
 import * as Styled from './App.style';
+// Apollo Client
+import { ApolloProvider, useQuery } from '@apollo/client';
+import { client, ExchangeRate } from './client/client';
+import { EXCHANGE_RATES } from './client/exchangeRates';
+
 
 interface IPokemon {
   image: string,
@@ -38,19 +43,43 @@ const App: React.FC = () => {
   return (
     <Theme> {/* Theme wrap app to provide global css variables */}
       <GlobalStyles /> {/* Global Styles like to font-family ... */}
-      <Styled.AppContainer>
-        <Header search={ getPokemon }/>
+      <ApolloProvider client={client}>
+        <Styled.AppContainer>
+          <Header search={ getPokemon }/>
 
-        <Styled.Main>
-          <Styled.Card 
-            image={ image }
-            name={ name }
-            details={ details }
-          />
-        </Styled.Main>
-      </Styled.AppContainer>
+          <Styled.Main>
+            <Styled.Card 
+              image={ image }
+              name={ name }
+              details={ details }
+            />
+            <ApolloPrueba/>
+          </Styled.Main>
+        </Styled.AppContainer>
+      </ApolloProvider>
     </Theme>
   );
+}
+
+const ApolloPrueba : React.FC = () => {
+  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  console.log(data)
+  
+  if(loading) return <p>Loading...</p>;
+  if(error) return <p>Error :(</p>;
+
+  // return data.rates.map( ({ currency, rate, name } : ExchangeRate ) => (
+  //   <div key={currency}>
+  //     <p> {currency} : {rate} </p>
+  //   </div>
+  // ));
+
+  return data.rates.filter(({ currency } : ExchangeRate) => currency === 'COP')
+          .map( ({ currency, rate, name } : ExchangeRate ) => (
+            <div key={currency}>
+              <p> {currency} : {rate} </p>
+            </div>
+          ));
 }
 
 
