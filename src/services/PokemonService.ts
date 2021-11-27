@@ -14,7 +14,7 @@ export const getPokemonByName = async (name: string) : Promise<IPokemon> => {
         image: data.sprites.front_default,  // stores front pokemon image
         name: data.name,                    // stores pokemon name
         details: data.types.length > 1      // stores pokemon types name
-            ? `${data.types[0].type.name} ${data.types[1].type.name}`
+            ? `${data.types[0].type.name}   ${data.types[1].type.name}`
             : data.types[0].type.name
     }
     return pokemon;
